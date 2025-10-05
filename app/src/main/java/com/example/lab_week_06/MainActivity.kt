@@ -69,6 +69,55 @@ class MainActivity : AppCompatActivity() {
                     "Curious George",
                     "Award winning investigator",
                     "https://cdn2.thecatapi.com/images/bar.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.Siamese,
+                    "Tom",
+                    "Likes to chase mice",
+                    "https://cdn2.thecatapi.com/images/a2b.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.Persian,
+                    "Garfield",
+                    "Loves lasagna",
+                    "https://cdn2.thecatapi.com/images/4l3.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.MaineCoon,
+                    "Simba",
+                    "King of the house",
+                    "https://cdn2.thecatapi.com/images/5p6.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.Bengal,
+                    "Nala",
+                    "Loves to play",
+                    "https://cdn2.thecatapi.com/images/6i5.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.Sphynx,
+                    "Felix",
+                    "Needs a sweater",
+                    "https://cdn2.thecatapi.com/images/7o4.jpg"
+                ),
+                CatModel(
+                    Gender.Female,
+                    CatBreed.Ragdoll,
+                    "Sylvester",
+                    "Is a bit of a scaredy cat",
+                    "https://cdn2.thecatapi.com/images/8q4.jpg"
+                ),
+                CatModel(
+                    Gender.Male,
+                    CatBreed.BritishShorthair,
+                    "Puss in Boots",
+                    "Has a sword",
+                    "https://cdn2.thecatapi.com/images/9p4.jpg"
                 )
             )
         )
