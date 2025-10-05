@@ -7,10 +7,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lab_week_06.model.CatBreed
 import com.example.lab_week_06.model.CatModel
 import com.example.lab_week_06.model.Gender
+
 private val FEMALE_SYMBOL = "\u2640"
 private val MALE_SYMBOL = "\u2642"
 private const val UNKNOWN_SYMBOL = "?"
-class CatViewHolder (containerView: View, private val imageLoader: ImageLoader) : RecyclerView.ViewHolder(containerView) {
+class CatViewHolder(
+    private val containerView: View,
+    private val imageLoader: ImageLoader,
+    private val onClickListener: CatAdapter.OnClickListener
+) :
+    RecyclerView.ViewHolder(containerView) {
     //containerView is the container layout of each item List
     //Here findViewById is used to get the reference of each views inside the container
     private val catBiographyView: TextView by lazy {
@@ -27,19 +33,30 @@ class CatViewHolder (containerView: View, private val imageLoader: ImageLoader) 
 
     //This function is called in the adapter to provide the binding function
     fun bindData(cat: CatModel) {
-        imageLoader.loadImage(cat.imageUrl, catPhotoView)
+       //Override the onClickListener function
+        containerView.setOnClickListener {
+        //Here we are using the onClickListener passed from the Adapter
+            onClickListener.onItemClick(cat)
+        }
+
+        imageLoader.loadImage(cat.imageUrl,catPhotoView)
         catNameView.text = cat.name
-        catBreedView.text = when (cat.breed) {
-            CatBreed.AmericanCurl -> "American Curl"
+        catBreedView.text = when (cat.breed){
+            CatBreed.AmericanCurl ->  " American Curl"
+            CatBreed.ExoticShorthair -> "Exotic Short Hair"
             CatBreed.BalineseJavanese -> "Balinese-Javanese"
-            CatBreed.ExoticShorthair -> "Exotic Shorthair"
             else -> "Unknown"
         }
         catBiographyView.text = cat.biography
-        catGenderView.text = when (cat.gender) {
+        catGenderView.text = when (cat.gender){
             Gender.Female -> FEMALE_SYMBOL
             Gender.Male -> MALE_SYMBOL
             else -> UNKNOWN_SYMBOL
         }
     }
+
+    //Declare an OnClickListener Interface
+//    interface OnClickListener {
+//        fun onClick(cat: CatModel)
+//    }
 }
